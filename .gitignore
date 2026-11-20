@@ -1,0 +1,16 @@
+# Ignore OS/editor noise and backup files
+*.bak
+*.swp
+*~
+.DS_Store
+
+# Never accidentally track secrets, tokens, or runtime databases
+*oauth-token*
+*credential*
+*.db
+*.db-shm
+*.db-wal
+*.jsonl
+*.pb
+*.pbtxt
+*.log
