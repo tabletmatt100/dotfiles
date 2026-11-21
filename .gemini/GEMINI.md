@@ -25,3 +25,6 @@
 
 ## Custom Slash Commands
 - **`/q <question>`**: When the user invokes `/q` (or the `q` skill), answer their question immediately and as concisely as possible in a single turn **without calling any tools** (do not even call `read_file` on `SKILL.md`).
+
+## Security & Secrets
+- **NEVER Commit API Keys or Tokens**: Never hardcode, base64-encode, or commit `GEMINI_API_KEY`, `GOOGLE_API_KEY`, GitHub tokens, or anything from `~/.secrets` into any Git repository (`matt-learning` or `dotfiles`), because Google/GitHub immediately revokes exposed keys. Store browser keys only in `localStorage` or the private state Gist (`b270eaafff8dc051eca22cc33b394235`).
