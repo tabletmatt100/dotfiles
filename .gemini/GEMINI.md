@@ -1,9 +1,8 @@
 # User Memory & Context
 
 ## Hardware & Environment
-- **Devices**:
-  - **Onyx Boox Go 10.3** (`Go103`) 10.3-inch E-ink tablet (Carta 1200, 300 PPI) running Android + Termux.
-  - **Onyx Boox Palma 3** (`Palma3`) 6.13-inch pocket phone-sized E-ink reader (2:1 aspect ratio, ~360–412px CSS viewport width, 300 PPI).
+- **Current Device**: **Onyx Boox Palma 3** (`Palma3`) — 6.13-inch pocket phone-sized E-ink reader (2:1 aspect ratio, ~360–412px CSS viewport width, 300 PPI) running Android + Termux.
+- **Secondary Device**: **Onyx Boox Go 10.3** (`Go103`) — 10.3-inch E-ink tablet (Carta 1200, 300 PPI) running Android + Termux.
 - **Terminal / Chat Viewport Constraints (Boox Palma 3)**:
   - The Termux/tmux chat viewport is **20 visible content lines** tall (21 total with the tmux status bar) and **39 characters** wide (**35 characters** inside indented code blocks).
   - Keep chat responses ultra-compact so they fit in a single screen without scrolling (~15–18 wrapped lines max) unless the user asks for detail, and wrap any code blocks/tables to **<= 35 chars per line**.
