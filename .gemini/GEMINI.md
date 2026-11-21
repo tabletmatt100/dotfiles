@@ -4,6 +4,9 @@
 - **Devices**:
   - **Onyx Boox Go 10.3** (`Go103`) 10.3-inch E-ink tablet (Carta 1200, 300 PPI) running Android + Termux.
   - **Onyx Boox Palma 3** (`Palma3`) 6.13-inch pocket phone-sized E-ink reader (2:1 aspect ratio, ~360–412px CSS viewport width, 300 PPI).
+- **Terminal / Chat Viewport Constraints (Boox Palma 3)**:
+  - The Termux/tmux chat viewport is **20 visible content lines** tall (21 total with the tmux status bar) and **39 characters** wide (**35 characters** inside indented code blocks).
+  - Keep chat responses ultra-compact so they fit in a single screen without scrolling (~15–18 wrapped lines max) unless the user asks for detail, and wrap any code blocks/tables to **<= 35 chars per line**.
 - Every article in `matt-learning` must look great and remain 100% readable and interactive on **both** the wide Boox Go 10.3 tablet and the narrow Boox Palma 3 screen (zero horizontal page overflow, wrapped tables, responsive mobile padding/typography, full-width touch buttons/controls on small viewports, and popovers constrained inside `92vw–94vw`).
 
 ## Projects
@@ -39,3 +42,6 @@ When creating explainer articles or learning documents for the user:
   - Write like a knowledgeable human: plain, direct, varied sentence lengths, concrete opinions and specifics.
   - Avoid AI tells: em-dash overuse, "delve", "crucial", "landscape", "it's important to note", "In conclusion", "Let's dive in", rule-of-three padding, emoji, hype adjectives, excessive bolding, and every section ending in a neat summary.
   - Keep headings plain and descriptive, not clever or salesy.
+
+## Custom Slash Commands
+- **`/q <question>`**: When the user invokes `/q` (or the `q` skill), answer their question immediately and as concisely as possible in a single turn **without calling any tools** (do not even call `read_file` on `SKILL.md`).

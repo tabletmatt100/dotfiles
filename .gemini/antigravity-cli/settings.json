@@ -2,6 +2,7 @@
   "allowNonWorkspaceAccess": true,
   "artifactReviewPolicy": "always-proceed",
   "colorScheme": "colorblind-friendly light",
+  "copyOnSelect": false,
   "model": "Gemini 4 Argon (Medium)",
   "permissions": {
     "allow": [

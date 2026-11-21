@@ -15,6 +15,7 @@ FILES=(
   ".gemini/GEMINI.md"
   ".gemini/antigravity-cli/settings.json"
   ".gemini/config/config.json"
+  ".gemini/config/skills/q/SKILL.md"
 )
 
 link_file() {
