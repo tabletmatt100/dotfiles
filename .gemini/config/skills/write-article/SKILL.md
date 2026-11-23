@@ -76,7 +76,7 @@ Anchor every article in a continuous, concrete story that explains *why* the pro
 
 1. **Stage 0 — Pre-Training Header (2–3 min max)**
    - **Bulleted TL;DR**: What problem this solves, the core mechanism in one concrete sentence, and when it breaks.
-   - **Inline Symbol / Term Legend**: 3–5 core symbols/terms with 1-line plain-English meanings.
+   - **No Vocab Table at the Top**: Never put a vocabulary or symbol table at the start of an article—introduce terms and symbols in context with clickable `.term` popovers.
    - **Fast-Forward Diagnostic**: 1-question check to let experts skip basic scaffolding.
 2. **Stage 1 — Concrete Prediction Hook**
    - A concrete scenario with intuitive tension. Force a prediction before showing the formula or unlocking the slider.
