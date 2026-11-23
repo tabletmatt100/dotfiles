@@ -30,7 +30,7 @@ Use `~/matt-learning/template2.html` as the structural reference template.
 
 4. **E-Ink & Minimal UI (Boox Palma 3 & Go 10.3)**
    - Black and white E-ink styling with zero animations/transitions, sized cleanly for the Boox Palma 3 (`~360–412px` width).
-   - Matt is the sole viewer and knows how everything works: never explain UI features, keep designs as minimal as possible, and prefer icon buttons.
+   - Matt is the sole viewer and knows how everything works: never explain UI features, never add topic/device tags (`<span class="tag">`) at the top of articles, keep designs as minimal as possible, and prefer icon buttons.
 
 5. **Human Prose, Zero AI Tells**
    - Write like a knowledgeable human: plain, direct, varied sentence lengths, concrete opinions and specifics.
