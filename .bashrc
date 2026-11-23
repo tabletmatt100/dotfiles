@@ -5,3 +5,6 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Dotfiles sync helper (`dotsync [optional commit message]`)
 alias dotsync='"$HOME/dotfiles/sync.sh"'
+
+# Load local untracked secrets (API keys, etc.)
+[ -f "$HOME/.secrets" ] && . "$HOME/.secrets"
