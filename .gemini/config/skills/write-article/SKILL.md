@@ -1,20 +1,50 @@
 ---
 name: write-article
 description: >-
-  Comprehensive pedagogical, UI/E-ink, and publishing rules for creating or editing interactive
-  learning articles in ~/matt-learning. Activate whenever writing, updating, or auditing an article
-  in matt-learning.
+  Comprehensive pedagogical, narrative prose, UI/E-ink, and publishing rules for creating or editing
+  interactive learning articles in ~/matt-learning. Activate whenever writing, updating, or auditing
+  an article in matt-learning.
 ---
 
 # Writing Interactive Learning Articles (`matt-learning`)
 
-Every article in `~/matt-learning` (`/data/data/com.termux/files/home/matt-learning`) must be a **commitment, feedback, and retrieval engine**—not a passive display medium—and must be optimized for both the **Onyx Boox Go 10.3** E-ink tablet and the **Onyx Boox Palma 3** pocket E-ink reader.
+Every article in `~/matt-learning` (`/data/data/com.termux/files/home/matt-learning`) must read like an engaging, human-written technical essay (in the spirit of Chris Olah, Andrej Karpathy, Jay Alammar, or Sebastian Raschka) paired with interactive mental-math checks—and must be optimized for both the **Onyx Boox Go 10.3** E-ink tablet and the **Onyx Boox Palma 3** pocket E-ink reader.
 
-Use `~/matt-learning/template2.html` as the structural reference template, and keep articles **tight, short, and punchy** so every paragraph and widget earns its space.
+Use `~/matt-learning/template2.html` as the structural reference template, and keep articles **tight, narrative-driven, and punchy** so every paragraph and widget earns its space.
 
 ---
 
-## 1. Non-Negotiable Personal Preferences
+## 1. Non-Negotiable Writing & Narrative Rules (No Fact-List Dumps!)
+
+1. **Always Introduce the Subject First in Plain English (No Front-Loaded Jargon Dumps)**
+   - **NEVER** open an article with a 4-bullet `TL;DR` full of unexplained symbols, a front-loaded Symbol Table, a Fast-Forward Quiz, or a Table of Contents before introducing the subject.
+   - **Rule:** Right below `<h1>`, open immediately with **2–3 short, conversational paragraphs** that introduce the subject from first principles:
+     1. **What is this topic and why does it exist?** Ground it in a real phenomenon, intuition, or practical problem before naming any paper mechanisms or formulas.
+     2. **What is the standard approach and where does it hit a wall?** Explain the specific pain point or bottleneck that forced people to invent this technique.
+     3. **What is the core insight in plain words?** State the central idea in one clean sentence without raw symbolic notation.
+   - If you include a summary box at the top, keep it to a **2–3 sentence plain-English framing note** (no formulas or symbol soup)—or let the opening paragraphs do the job directly.
+   - **Never put a Symbol Table, Fast-Forward Diagnostic, or Table of Contents at the top of the article.** Introduce symbols inline in prose at the exact moment they are first needed (every symbol already has a clickable `.term` popover).
+
+2. **Write Connected Prose Paragraphs, Not Bullet Lists of Facts**
+   - AI-generated articles often read like a Wikipedia summary or a checklist of disconnected facts wrapped in `<ul>` / `<ol>` bullets.
+   - **Rule:** Explain concepts through **flowing prose paragraphs with causal transitions** (*"That fixes the memory bill, but it creates a second headache when..."*, *"Wait—why not just average the tokens first?"*).
+   - Use bullet lists **only** when comparing 2–3 genuinely parallel cases (e.g., *Case A vs. Case B* in a contrasting prediction setup) or listing steps inside a `.worked` arithmetic trace. Never use a bullet list as a substitute for narrative explanation.
+
+3. **Anchor the Entire Article in One Continuous Concrete Scenario**
+   - Instead of inventing a brand-new abstract array of numbers in every section, introduce **one intuitive running scenario** early (e.g., a 3-tile warehouse robot hallway, a loan default table, or a 4-token review sentence) and carry that same scenario through the entire article as each new complication arises.
+
+4. **Strip Pedagogical Meta-Jargon from Headings and Widget Labels**
+   - Never expose instructional-design rubric terms to the reader.
+   - **Banned visible labels:** `"Stage 0"`, `"Stage 1"`, `"Predict-Observe-Explain (Contrasting Cases First)"`, `"Discrete Stepper + Persistent Small Multiples"`, `"Backward-Faded Worked Example"`, `"Micro-Prediction Gate"`, `"Contrastive Matrix"`.
+   - Use natural, topic-specific labels instead: `"Quick Prediction"`, `"Try It By Hand"`, `"Step-by-Step Comparison"`, `"Interactive Explorer"`, `"When to Use What"`.
+
+5. **Zero AI Tells, Human Voice**
+   - Write like a sharp colleague explaining something at a whiteboard: plain, direct, varied sentence lengths, concrete opinions, and honest caveats about where a method fails in practice.
+   - Avoid AI tells: em-dash overuse, "delve", "crucial", "landscape", "it's important to note", "In conclusion", "Let's dive in", rule-of-three padding, emoji, hype adjectives, excessive bolding, and every section ending in a neat summary.
+
+---
+
+## 2. Non-Negotiable Personal & UI Preferences
 
 1. **No Calculator Required for Any Question (Clean-Root & Base-2 Mental Math)**
    - Every prediction hook, worked example, inline faded step, retrieval prompt, and MCQ must be solvable mentally without a calculator.
@@ -27,90 +57,58 @@ Use `~/matt-learning/template2.html` as the structural reference template, and k
    - Keep those distinct numbers small enough to compute mentally without a calculator.
 
 3. **All Concepts and Symbols Must Be Clickable with Anchored Popovers**
-   - Every non-obvious concept, technical term, acronym, prerequisite, AND every mathematical symbol, variable, or operator (in prose, legends, and equations) must be clickable (`.term[data-term]`).
+   - Every non-obvious concept, technical term, acronym, prerequisite, AND every mathematical symbol, variable, or operator (in prose and equations) must be clickable (`.term[data-term]`).
    - Clicking any concept or symbol must open an anchored popover explaining what it means in plain English (with nested `.term` links inside popover definitions when helpful), without a full-screen backdrop so the page remains visible.
 
 4. **E-Ink & Minimal UI (Boox Palma 3 & Go 10.3)**
    - Black and white E-ink styling with zero animations/transitions, sized cleanly for the Boox Palma 3 (`~360–412px` width).
-   - Matt is the sole viewer and knows how everything works: never explain UI features, never add topic/device tags (`<span class="tag">`) at the top of articles, keep designs as minimal as possible, and prefer icon buttons.
-
-5. **Human Prose, Zero AI Tells, Short & Tight**
-   - Write like a knowledgeable human: plain, direct, varied sentence lengths, concrete opinions and specifics. Keep articles concise and free of bloat.
-   - Avoid AI tells: em-dash overuse, "delve", "crucial", "landscape", "it's important to note", "In conclusion", "Let's dive in", rule-of-three padding, emoji, hype adjectives, excessive bolding, and every section ending in a neat summary.
-   - Keep headings plain and descriptive, not clever or salesy. Never use raw template labels like "Stage 1" or "Stage 3" as section headings.
+   - Matt is the sole viewer and knows how everything works: never add boilerplate tip banners explaining how to tap underlined terms, never add topic/device tags (`<span class="tag">`) at the top of articles, keep designs as minimal as possible, and prefer icon buttons.
 
 ---
 
-## 2. Core Pedagogical Rules (Cognitive & HCI Evidence)
+## 3. Pedagogical Mechanics (Woven Naturally Into the Story)
 
-1. **Force Constructive (C) output, not just Active (A) clicking (Micro-Predictions Before Every Widget).**
-   - Dragging a slider or clicking "Next" is only *Active* (barely beats passive reading and creates a "fluent-yet-fragile" illusion of competence).
-   - **Rule:** Never leave an interactive slider or simulator wide open by default. Place a **15-second micro-prediction or numerical commitment** right above *every* interactive widget (with an `"I have no idea — show me"` escape hatch) before unlocking or using the free controls.
-2. **Contrasting Cases *Before* the Formal Equation (Schwartz & Bransford; Kapur's Productive Failure).**
-   - Never open a section with a formal symbolic definition or an open-ended sandbox (unassisted discovery hurts novices, `d = -0.38`).
-   - **Rule:** Before stating any major formula, present a **2-case concrete numerical clash** (e.g., Case A vs. Case B where the naive formula or average fails) and ask the reader to predict/spot the failure first. Introduce the symbolic equation only *after* the contrasting cases establish what problem the symbols solve.
-3. **Predict-Observe-Explain (POE) + Refutation Text.**
-   - Overlay the true answer/curve directly on the reader's prediction so the error gap is explicit.
-   - Name the exact misconception: *"Most people guess [X] because they assume [naive heuristic]. That breaks here because [1-sentence reason]."*
-4. **Discrete steppers + persistent small multiples over continuous animation.**
-   - Continuous animations suffer from the *Transient Information Effect* (earlier states vanish before working memory links them). Use `Step 1 | Step 2 | Step 3` controls (and constrained presets like `Low | Critical | High` alongside any slider) while keeping prior states visible side-by-side or as ghost traces.
-5. **Enforce Spatial Contiguity (zero split-attention).**
-   - Put labels directly on SVG curves and bars instead of in separate legends or bottom captions. Link equation symbols, prose terms, and visual elements inline.
-6. **Subgoal Labeling + "What Breaks If Deleted" Equation Anatomy (Catrambone).**
-   - Readers forget multi-term formulas when they only read symbol definitions.
-   - **Rule:** Pair every primary equation with a compact **Equation Anatomy / Ablation Table** (or inline underbraces) showing for each sub-expression: (1) its functional job/subgoal, (2) its shape/units, and (3) **what numerically breaks, saturates, or cheats if you delete that term or set it to 1**.
-7. **Strict chunk budget + Concrete -> Abstract (Concreteness Fading).**
-   - Keep prose chunks to **150–250 words** per visual or interactive step. Never bury a widget under 1,000 words of text.
-   - Walk through one concrete numerical trace with real numbers *before* stating the general equation, then map numbers to symbols.
-8. **Inline Fading Inside *Every* Worked Example (Renkl's Backward Fading).**
-   - When a `.worked` box solves 100% of the arithmetic from start to finish, readers passively scan and nod along without encoding the rule.
-   - **Rule:** Inside **every `.worked` trace** (as well as the dedicated backward-faded practice problem), fade/blank out the final mental-math step or punchline coordinate behind a fast inline input + `Check` button (5 seconds to solve from the numbers right above it).
-9. **Palma-Friendly Boundary & Counterfactual Checks Instead of Long Essay Textareas (Roediger & Karpicke).**
-   - Long `<textarea>` essay prompts create high typing friction on a 6.13-inch Boox Palma 3 screen, tempting readers to mumble the answer and tap `Reveal` early.
-   - **Rule:** Replace long essay textareas with **2–3 fast, auto-graded Palma-friendly retrieval cards**:
-     - **Boundary / Counterexample Generation:** *"Enter a concrete input $x$ where this formula's gradient/score collapses to 0 (or fails)"* (auto-checked by formula).
-     - **Shape / Invariant Check:** 1-tap or 1-number check on shapes, direction, or conservation rules.
-     - **Counterfactual Mental Calculation:** 1-number mental-math completion without looking back.
-10. **Mitigate the Expertise Reversal Trap.**
-    - Provide a 1-question **Fast-Forward Diagnostic** at the top of the article so experienced readers can collapse basic scaffolding.
-11. **End with Contrastive Matrix, Diagnostic Checks, and Spaced Recall.**
-    - Include a **Contrastive Matrix** comparing the new concept/variants across 3–4 decision axes (Objective, Failure Mode, Cost/Complexity, When to Use).
-    - Include collapsed `<details class="mcq-box">` diagnostic checks (with `data-explain` on every option).
-    - Export **5–8 spaced Q&A recall prompts** (`var SPACED_CARDS = [...]`).
+1. **Concrete Clash & Intuition *Before* the Formal Equation**
+   - Never open a section by dropping a symbolic equation out of nowhere.
+   - First show the concrete tension or a 2-case numerical clash in your running story where the naive approach fails, and ask the reader to predict what happens. State the general equation only *after* the reader has seen the numbers work.
+2. **Explain Every Piece of an Equation (and What Breaks Without It)**
+   - When you introduce a primary equation, explain in plain prose (or a clean, non-boilerplate breakdown) what each piece is doing and what numerically breaks, saturates, or cheats if you remove it.
+3. **Interactive Finish-the-Step Inside Worked Examples**
+   - When a `.worked` box solves 100% of the arithmetic passively, readers skim past it. Let the worked example walk through Steps 1–2 with distinct numbers, and let the reader punch in the final 5-second mental-math number (`[input] [Check]`).
+4. **Commit Before Playing With a Simulator**
+   - Preceding an interactive chart or slider with a quick 10-second numerical or directional prediction (plus an `"I'm not sure — show me"` button) turns passive slider-dragging into an active test of understanding.
+   - Keep discrete preset buttons (`Step 1 | Step 2 | Step 3`) and side-by-side small multiples so the reader can see the comparison even without dragging a slider.
+5. **Palma-Friendly Checks at the End**
+   - End the article with a concise **"When to Use What" comparison table**, 2–3 fast auto-graded mental-math / boundary checks (no long essay `<textarea>` boxes that are painful to type on a Palma 3), and collapsed `<details class="mcq-box">` diagnostic questions.
+   - Export **5–8 spaced Q&A recall prompts** (`var SPACED_CARDS = [...]`).
 
 ---
 
-## 3. Standard 5-Stage Article Architecture
+## 4. Natural Article Flow (The 5-Part Story Arc)
 
-Anchor every article in a continuous, concrete story that explains *why* the problem exists and how each concept fixes a flaw in the previous one. Keep the entire article compact:
-
-1. **Stage 0 — Pre-Training Header (2 min max)**
-   - **Bulleted TL;DR**: What problem this solves, the core mechanism in one concrete sentence, and when it breaks.
-   - **Inline Symbol / Term Legend**: 3–5 core symbols/terms with 1-line plain-English meanings.
-   - **Fast-Forward Diagnostic**: 1-question mental-math check to let experts collapse basic scaffolding.
-2. **Stage 1 — Contrasting 2-Case Prediction Hook**
-   - A concrete 2-case numerical clash with intuitive tension. Force a prediction before showing the formula or unlocking the widget.
-3. **Stage 2 — Gap Reveal & Misconception Refutation**
-   - Show the true result overlaid on the reader's guess and refute the naive heuristic directly.
-4. **Stage 3 — Segmented Mechanism + Inline-Faded Worked Examples + Equation Ablation Table**
-   - 150–250 word chunks, concrete distinct mental-math numbers (clean roots / $\log_2$ bits) -> general equation + **"What Breaks If Deleted" Equation Anatomy table**.
-   - **Inline faded final step** inside every `.worked` box.
-   - Discrete stepper + persistent small multiples, with a **micro-prediction gating every interactive widget/slider**.
-5. **Stage 4 — Backward-Faded Practice & Palma-Friendly Boundary/Counterfactual Retrieval**
-   - 70%-worked example where the reader finishes the last step + **2–3 fast auto-graded boundary/counterfactual retrieval cards** (no long essay textareas).
-6. **Stage 5 — Contrastive Matrix, Diagnostic MCQs & Spaced Export**
-   - Comparison table across decision axes, collapsed `<details class="mcq-box">` checks (with `data-explain` on every option), and exportable spaced-recall Q&A cards.
+1. **Part 1 — The Plain-English Hook & Running Scenario**
+   - 2–3 paragraphs right under `<h1>`: What is this topic, what everyday or engineering bottleneck created it, and what is the core idea in plain English?
+   - Introduce the concrete running scenario and let the reader make a quick first prediction on why the naive baseline fails.
+2. **Part 2 — The Core Mechanism (Numbers First, Then the Formula)**
+   - Walk through how the mechanism fixes that failure using the running scenario's distinct mental-math numbers (with a quick inline finish-the-step input).
+   - Then write down the general formula and explain in natural prose what each piece does and what breaks if you delete it.
+3. **Part 3 — The Second Complication & Interactive Comparison**
+   - Every good technical story has a second act: *"Fixing X created a new trade-off Y—here is how the full method handles it."*
+   - Pair with a discrete step-by-step visual comparison (`small-multiples` + interactive explorer preceded by a quick prediction).
+4. **Part 4 — Hands-On Practice & Edge Cases (Where It Breaks)**
+   - Explain honestly where this method fails in practice, paired with a faded practice problem and 2 fast auto-graded boundary checks.
+5. **Part 5 — "When to Use What" Table & Diagnostic MCQs**
+   - A clean decision table comparing alternatives, followed by collapsed `<details class="mcq-box">` checks (with `data-explain` on every option) and `var SPACED_CARDS = [...]`.
 
 ---
 
-## 4. Shared Assets, Technical Implementation & Publishing Workflow
+## 5. Shared Assets, Technical Implementation & Publishing Workflow
 
 - **Shared `common.css` and `common.js`**:
-  - Every article must load `<link rel="stylesheet" href="common.css">` and `<script src="common.js"></script>` in `<head>` (right after the KaTeX tags) instead of duplicating the E-ink stylesheet or JS engine for font-scaling, KaTeX auto-rendering, anchored popovers, MCQ grading, and spaced-recall cards.
+  - Every article must load `<link rel="stylesheet" href="common.css">` and `<script src="common.js"></script>` in `<head>` (right after the KaTeX tags). Do not add a manual `<header>` bar in the HTML body (`common.js` injects the top bar automatically).
   - Each article's `<script>` only defines its `var GLOSSARY = {...}`, its `var SPACED_CARDS = [...]`, and its page-specific interactive widget functions.
 - **Offline + Online KaTeX**: Load from local `katex/` with `onerror` fallback to jsDelivr.
-- **Collapsed MCQs by default**: Wrap every MCQ in `<details class="mcq-box" data-correct="B" data-topic="...">` with `<label class="mcq-option" data-explain="...">Option text</label>`. `common.js` automatically generates the `id`, `<summary class="mcq-title">`, `<input type="radio">`, letter prefixes (`A)`, `B)`, `C)`), the `Check answer` button, `<div class="mcq-feedback">`, and the `.score-bar` contents.
-- **Collapsible Derivations & Code**: Use `<details>` and `<summary>` tags to hide advanced derivations, deep math proofs, or code implementations by default.
+- **Collapsed MCQs by default**: Wrap every MCQ in `<details class="mcq-box" data-correct="B" data-topic="...">` with `<label class="mcq-option" data-explain="...">Option text</label>`.
 - **Publishing Workflow**:
   1. Always add a card/link for any new article to `~/matt-learning/index.html` (and update `srs-cards.json` / `sw.js` if applicable).
   2. Commit and push changes to `main` so they are live on GitHub Pages.
@@ -118,12 +116,10 @@ Anchor every article in a continuous, concrete story that explains *why* the pro
 
 ---
 
-## 5. Pre-Publish Self-Audit Checklist
+## 6. Pre-Publish Self-Audit Checklist
 
-1. **No-Click Audit**: If a reader never touches an optional slider, do the default state + discrete steppers/small multiples still communicate 100% of the argument?
-2. **Blind-Click Audit (Micro-Prediction Before Every Widget)**: Is *every* interactive slider/simulator gated or preceded by a micro-prediction prompt so readers cannot mistake smooth UI motion for understanding?
-3. **Contrasting-Cases-First & Equation-Ablation Audit**: Does a 2-case numerical clash precede the formal equation, and does every primary equation include a subgoal / "what breaks if deleted" breakdown?
-4. **Inline-Faded Worked Examples Audit**: Does *every* `.worked` trace have its final mental-math number blanked out behind an inline `[input] [Check]` box?
-5. **Palma-Friendly Blank-Sheet Test**: Are long essay textareas replaced by 2–3 fast, auto-graded boundary/counterexample and counterfactual generation prompts?
-6. **Popover & MCQ Audit**: Are all unfamiliar concepts AND mathematical symbols/variables/operators clickable with anchored `.term` popovers, and are all MCQs collapsed by default in `<details class="mcq-box">`?
-7. **No-Calculator, Clean-Root & Base-2 Traceable-Numbers Audit**: Can every question, worked example, and MCQ be solved mentally without a calculator (using perfect-square dimensions for $\sqrt{d_k}$, powers of $1/2$ with $\log_2$ for logs/KL/confidence, and distinct traceable numbers)?
+1. **Human Opening Audit**: Does the article start immediately under `<h1>` with 2–3 plain-English paragraphs introducing *what* the subject is and *why* it matters, with **zero** front-loaded Symbol Tables, Fast-Forward Quizzes, TOCs, or formula-stuffed TL;DR bullets blocking the story?
+2. **Prose vs. Fact-List Audit**: Are mechanisms explained through connected, conversational prose paragraphs with causal transitions rather than `<ul>`/`<ol>` bullet lists of facts?
+3. **Zero Meta-Jargon Audit**: Have all rubric labels (`"Stage 1"`, `"Predict-Observe-Explain"`, `"Discrete Stepper + Persistent Small Multiples"`, `"Backward-Faded Worked Example"`, `"Micro-Prediction Gate"`) been replaced with natural, topic-specific headings?
+4. **No-Calculator, Clean-Root & Base-2 Traceable-Numbers Audit**: Can every question, worked example, and MCQ be solved mentally without a calculator using distinct, traceable numbers?
+5. **Popover & MCQ Audit**: Are all unfamiliar concepts AND mathematical symbols/variables/operators clickable with anchored `.term` popovers, and are all MCQs collapsed by default in `<details class="mcq-box">`?
