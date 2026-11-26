@@ -25,9 +25,11 @@ Write every article in `~/matt-learning` as a **short, conversational human essa
 3. **3–4 Collapsed MCQs Placed Along the Way**:
    - Place a `<details class="mcq-box" data-correct="B" data-topic="Check 1: ...">` right after each key section to test understanding (mental math only, no calculator). Put `data-explain="..."` on every `<label class="mcq-option">`.
    - Include `<div class="score-bar"></div>` and `<div class="interactive-card" id="spaced-widget"></div>` at the bottom of `<main>`.
-4. **Compare & Contrast Table Near the End**:
+4. **Clean E-Ink SVG Diagrams (`.figure-box`) When Helpful**:
+   - Whenever an architecture, spatial mechanism, or matrix pattern (such as sliding-window vs. global attention, pooling blocks, or routing) is easier to grasp visually, include 1–2 high-contrast black-and-white inline `<svg>` diagrams inside `<div class="figure-box">`.
+5. **Compare & Contrast Table Near the End**:
    - Include a `<div class="table-wrap"><table>...</table></div>` comparing the main variants or related approaches across practical decision axes (Mechanism, Tradeoff / Failure Mode, When to Use).
-5. **Spaced-Repetition Cards (`var SPACED_CARDS = [...]`)**:
+6. **Spaced-Repetition Cards (`var SPACED_CARDS = [...]`)**:
    - Define 4–6 concise Q&A pairs at the bottom of `<script>` for the SRS deck.
 
 ## 3. Shared Assets & Publishing
